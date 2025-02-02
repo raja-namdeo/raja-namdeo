@@ -4,11 +4,50 @@ export default {
 		"./index.html",
 		"./src/**/*.{js,ts,jsx,tsx}",
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
-				primary: '#3B82F6',
-				secondary: '#1E40AF',
+				// Core colors
+				primary: {
+					light: '#1E201E',  // Dark grey for light mode
+					dark: '#FFFFFF',   // White for dark mode
+				},
+				background: {
+					light: '#FFFFFF',  // White for light mode
+					dark: '#000000',   // Pure black for dark mode
+				},
+				text: {
+					light: '#1E201E',  // Dark grey for light mode
+					dark: '#FFFFFF',   // White for dark mode
+				},
+				accent: {
+					light: '#4A4A4A',  // Medium grey for light mode
+					dark: '#E5E5E5',   // Light grey for dark mode
+				},
+				// Gray scale
+				gray: {
+					50: '#FAFAFA',
+					100: '#F5F5F5',
+					200: '#E5E5E5',
+					300: '#D4D4D4',
+					400: '#A3A3A3',
+					500: '#737373',
+					600: '#525252',
+					700: '#404040',
+					800: '#262626',
+					900: '#171717',
+				}
+			},
+			backgroundColor: {
+				'black-true': '#000000',
+				'white-true': '#FFFFFF',
+
+			},
+			textColor: {
+				'dark-primary': '#FFFFFF',
+				'dark-secondary': '#E5E7EB',
+				'dark-tertiary': '#9CA3AF',
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],

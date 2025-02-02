@@ -1,117 +1,132 @@
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import { styles } from '../../styles';
+import React, { useState } from 'react'
 
 const Contact = () => {
-	const formRef = useRef();
-	const [form, setForm] = useState({
+	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
-		message: '',
-	});
-	const [loading, setLoading] = useState(false);
+		message: ''
+	})
 
 	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setForm({ ...form, [name]: value });
-	};
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value
+		})
+	}
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		setLoading(true);
-
-		emailjs.send(
-			'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-			'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-			{
-				from_name: form.name,
-				to_name: 'Raja',
-				from_email: form.email,
-				to_email: 'cse.rajanamdeo@gmail.com',
-				message: form.message,
-			},
-			'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-		).then(() => {
-			setLoading(false);
-			alert('Thank you. I will get back to you as soon as possible.');
-			setForm({
-				name: '',
-				email: '',
-				message: '',
-			});
-		}, (error) => {
-			setLoading(false);
-			console.log(error);
-			alert('Something went wrong. Please try again.');
-		});
-	};
+		e.preventDefault()
+		// Add form submission logic here
+		console.log('Form submitted:', formData)
+	}
 
 	return (
-		<section className="relative w-full h-screen mx-auto">
-			<div className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
-				<span className="hash-span" id="contact">
-					&nbsp;
-				</span>
+		<section id="contact" className="py-20 bg-white dark:bg-black transition-colors duration-300">
+			<div className="container mx-auto px-4">
+				<h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black dark:text-white">
 
-				<div>
-					<p className={styles.sectionSubText}>Get in touch</p>
-					<h2 className={styles.sectionHeadText}>Contact.</h2>
-				</div>
+						Get In Touch
+					</h2>
 
-				<div className="mt-12 flex flex-col gap-8">
-					<div className="flex-[0.75] bg-black-200 p-8 rounded-2xl">
-						<form
-							ref={formRef}
-							onSubmit={handleSubmit}
-							className="mt-12 flex flex-col gap-8"
-						>
-							<label className="flex flex-col">
-								<span className="text-white font-medium mb-4">Your Name</span>
+					<div className="max-w-3xl mx-auto">
+						<div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800">
+							<form onSubmit={handleSubmit} className="space-y-6">
+								<div>
+									<label htmlFor="name" className="block text-black dark:text-white mb-2 font-medium">
+									Name
+								</label>
 								<input
 									type="text"
+									id="name"
 									name="name"
-									value={form.name}
+									value={formData.name}
 									onChange={handleChange}
-									placeholder="What's your name?"
-									className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+									className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 
+                           border border-gray-300 dark:border-gray-700
+                           text-black dark:text-white
+                           focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600
+                           focus:border-transparent transition-all duration-300"
+									required
 								/>
-							</label>
-							<label className="flex flex-col">
-								<span className="text-white font-medium mb-4">Your Email</span>
+							</div>
+
+							<div>
+								<label htmlFor="email" className="block text-black dark:text-white mb-2 font-medium">
+									Email
+								</label>
 								<input
 									type="email"
+									id="email"
 									name="email"
-									value={form.email}
+									value={formData.email}
 									onChange={handleChange}
-									placeholder="What's your email?"
-									className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+									className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 
+                           border border-gray-300 dark:border-gray-700
+                           text-black dark:text-white
+                           focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600
+                           focus:border-transparent transition-all duration-300"
+									required
 								/>
-							</label>
-							<label className="flex flex-col">
-								<span className="text-white font-medium mb-4">Your Message</span>
+							</div>
+
+							<div>
+								<label htmlFor="message" className="block text-black dark:text-white mb-2 font-medium">
+									Message
+								</label>
 								<textarea
-									rows="7"
+									id="message"
 									name="message"
-									value={form.message}
+									value={formData.message}
 									onChange={handleChange}
-									placeholder="What do you want to say?"
-									className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-								/>
-							</label>
+									rows="5"
+									className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 
+                           border border-gray-300 dark:border-gray-700
+                           text-black dark:text-white
+                           focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600
+                           focus:border-transparent transition-all duration-300"
+									required
+								></textarea>
+							</div>
 
 							<button
 								type="submit"
-								className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
+								className="w-full py-3 bg-black dark:bg-white text-white dark:text-black 
+                         rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100
+                         transition-all duration-300 shadow-lg hover:shadow-xl"
 							>
-								{loading ? 'Sending...' : 'Send'}
+								Send Message
 							</button>
 						</form>
+
+						<div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+							<h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+								Other Ways to Connect
+							</h3>
+							<div className="space-y-3">
+								<a 
+									href="mailto:cse.rajanamdeo@gmail.com"
+									className="flex items-center text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+								>
+									<span className="font-medium">Email:</span>
+									<span className="ml-2">cse.rajanamdeo@gmail.com</span>
+								</a>
+								<a 
+									href="https://github.com/raja-namdeo"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+								>
+									<span className="font-medium">GitHub:</span>
+									<span className="ml-2">github.com/raja-namdeo</span>
+								</a>
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
-export default Contact;
+export default Contact

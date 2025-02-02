@@ -2,29 +2,36 @@ import React from 'react'
 
 const Hero = () => {
 	return (
-		<section id="home" className="pt-20 min-h-screen flex items-center bg-gray-50">
-			<div className="container mx-auto px-4">
-				<div className="max-w-3xl mx-auto text-center">
-					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-						Hi, I'm Raja Namdeo
-					</h1>
-					<p className="text-xl md:text-2xl text-gray-600 mb-8">
-						Full Stack Developer specializing in building exceptional digital experiences
-					</p>
-					<div className="flex justify-center gap-4">
-						<a
-							href="#projects"
-							className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-						>
-							View My Work
-						</a>
-						<a
-							href="#contact"
-							className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors"
-						>
-							Contact Me
-						</a>
-					</div>
+		<section id="home" className="min-h-screen flex items-center justify-center bg-white dark:bg-black transition-colors duration-300">
+			<div className="container mx-auto px-4 text-center">
+				<h1 className="text-5xl md:text-7xl font-bold mb-6 text-black dark:text-white">
+					Hi, I'm Raja Namdeo
+				</h1>
+				
+				<p className="text-xl md:text-2xl mb-12 text-gray-700 dark:text-gray-300">
+					Full Stack Developer specializing in modern web technologies
+				</p>
+				
+				<div className="flex flex-col sm:flex-row gap-6 justify-center">
+					<a 
+						href="#projects" 
+						className="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black 
+										 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 
+										 transition-all duration-300 shadow-lg hover:shadow-xl"
+					>
+						View Projects
+					</a>
+					<a 
+						href="https://github.com/raja-namdeo"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="px-8 py-3 bg-white dark:bg-gray-800 text-black dark:text-white 
+										 border-2 border-gray-900 dark:border-white rounded-lg
+										 hover:bg-gray-100 dark:hover:bg-gray-700
+										 transition-all duration-300 shadow-lg hover:shadow-xl"
+					>
+						GitHub Profile
+					</a>
 				</div>
 			</div>
 		</section>
@@ -32,3 +39,4 @@ const Hero = () => {
 }
 
 export default Hero
+
