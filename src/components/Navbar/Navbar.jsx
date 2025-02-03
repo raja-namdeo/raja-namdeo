@@ -14,13 +14,14 @@ const Navbar = () => {
 	}, [])
 
 	const navItems = [
-		{ label: 'Home', href: '#home' },
-		{ label: 'About', href: '#about' },
-		{ label: 'Experience', href: '#experience' },
-		{ label: 'Skills', href: '#skills' },
-		{ label: 'Projects', href: '#projects' },
-		{ label: 'Contact', href: '#contact' }
-	]
+		{ label: 'Home', href: '/#home' },
+		{ label: 'About', href: '/#about' },
+		{ label: 'Experience', href: '/#experience' },
+		{ label: 'Skills', href: '/#skills' },
+		{ label: 'Projects', href: '/#projects' },
+		{ label: 'Contact', href: '/#contact' },
+		{ label: 'Blog', href: '/blog' } // Add Blog Link
+	];	  
 
 	return (
 		<header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${

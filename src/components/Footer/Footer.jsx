@@ -23,7 +23,7 @@ const Footer = () => {
 							{['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'].map((item) => (
 								<li key={item}>
 									<a 
-										href={`#${item.toLowerCase()}`}
+										href={`/#${item.toLowerCase()}`}
 										className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
 									>
 										{item}

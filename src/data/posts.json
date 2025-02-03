@@ -1,0 +1,19 @@
+[
+	{
+	  "slug": "getting-started-with-react-and-tailwind-css",
+	  "title": "Getting Started with React and Tailwind CSS",
+	  "date": "2024-02-03",
+	  "excerpt": "Learn how to set up a modern web development environment using React and Tailwind CSS.",
+	  "coverImage": "https://via.placeholder.com/1200x600.png?text=React+%26+Tailwind+CSS",
+	  "content": "## Introduction\nReact is one of the most popular JavaScript libraries for building user interfaces, and Tailwind CSS is a utility-first CSS framework that makes styling much easier.\n\n### Prerequisites\nBefore we begin, make sure you have Node.js installed on your system. If not, you can download it from the [official website](https://nodejs.org/).\n\n### Setting Up the Project\nLet's create a new React project and install Tailwind CSS.\n\n```bash\nnpx create-react-app react-tailwind-app\ncd react-tailwind-app\nnpm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init\n```\n\n### Configuring Tailwind CSS\nOnce Tailwind is installed, create a `tailwind.config.js` file.\n\n```javascript\nmodule.exports = {\n  content: [\n    \"./src/**/*.{js,jsx,ts,tsx}\",\n  ],\n  theme: {\n    extend: {},\n  },\n  plugins: [],\n}\n```\n\n### Using Tailwind in React\nNow you can start using Tailwind classes in your React components. Here's an example:\n\n```jsx\nfunction App() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center bg-gray-100\">\n      <h1 className=\"text-4xl font-bold text-blue-500\">\n        Welcome to React with Tailwind CSS!\n      </h1>\n    </div>\n  );\n}\n\nexport default App;\n```\n\n### Conclusion\nWith these steps, you now have a fully functional React app styled with Tailwind CSS.\n\n#### Image Example\n![React and Tailwind](https://via.placeholder.com/800x400.png?text=React+and+Tailwind+CSS)"
+	},
+	{
+	  "slug": "exploring-the-new-javascript-features",
+	  "title": "Exploring the New JavaScript Features",
+	  "date": "2024-01-15",
+	  "excerpt": "In this post, we'll dive deep into the new features introduced in JavaScript.",
+	  "coverImage": "https://via.placeholder.com/1200x600.png?text=JavaScript+Features",
+	  "content": "## Introduction\nJavaScript is constantly evolving, and with each new version, exciting features are introduced. In this post, we'll take a look at some of the latest features that have been added to JavaScript.\n\n### 1. Top-Level Await\nTop-level await allows you to use `await` outside of async functions.\n\n```javascript\nconst result = await fetch('https://api.example.com/data');\nconsole.log(result);\n```\n\nThis is useful in modules where asynchronous code is needed immediately.\n\n### 2. Nullish Coalescing Operator (??)\nThe nullish coalescing operator is used to assign default values only when a variable is `null` or `undefined`.\n\n```javascript\nconst name = user.name ?? 'Guest';\n```\n\n### 3. Logical Assignment Operators\nJavaScript now supports logical assignment operators, such as `&&=`, `||=`, and `??=`.\n\n```javascript\nlet a = 5;\na ||= 10;\nconsole.log(a); // 5\n```\n\n### 4. Promise.any()\n`Promise.any()` returns the first fulfilled promise, ignoring the rejected ones.\n\n```javascript\nconst p1 = new Promise((resolve, reject) => setTimeout(resolve, 100, 'First')); \nconst p2 = new Promise((resolve, reject) => setTimeout(resolve, 200, 'Second'));\n\nPromise.any([p1, p2]).then(console.log); // Output: 'First'\n```\n\n### 5. WeakRefs\nWeak References are a new feature that allows holding a weak reference to an object.\n\n```javascript\nlet obj = { name: 'WeakRef' };\nlet weakRef = new WeakRef(obj);\nconsole.log(weakRef.deref()); // { name: 'WeakRef' }\n```\n\n### Conclusion\nThese are just a few of the new features in JavaScript. They aim to make JavaScript development more efficient and easier.\n\n#### Image Example\n![JavaScript Features](https://via.placeholder.com/800x400.png?text=JavaScript+Features)"
+	}
+  ]
+  
