@@ -10,6 +10,7 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import BlogList from './components/Blog/BlogList';
 import BlogPost from './components/Blog/BlogPost';
+import NotFound from './components/NotFound/NotFound';
 import { useEffect, useState } from 'react';
 import { parseMarkdown, sortPostsByDate } from './utils/mdParser';
 
@@ -40,7 +41,7 @@ const App = () => {
         <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={
+            <Route exact path="/" element={
               <>
                 <section id="home" className="section-default"><Hero /></section>
                 <section id="about" className="section-alternate"><About /></section>
@@ -50,8 +51,9 @@ const App = () => {
                 <section id="contact" className="section-alternate"><Contact /></section>
               </>
             } />
-            <Route path="/blog" element={<BlogList posts={posts} />} />
-            <Route path="/blog/:slug" element={<BlogPost posts={posts} />} />
+            <Route exact path="/blog" element={<BlogList posts={posts} />} />
+            <Route exact path="/blog/:slug" element={<BlogPost posts={posts} />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
