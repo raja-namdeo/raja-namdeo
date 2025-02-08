@@ -16,8 +16,25 @@ const Contact = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		// Add form submission logic here
-		console.log('Form submitted:', formData)
+		
+		 // Format the phone number (remove +91 and any spaces)
+		const phoneNumber = '916263269310'
+		
+		// Construct the message for WhatsApp
+		const messageBody = `Name: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`
+		
+		// Construct WhatsApp URL
+		const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${messageBody}`
+		
+		// Open WhatsApp in a new tab
+		window.open(whatsappUrl, '_blank')
+		
+		// Clear the form
+		setFormData({
+			name: '',
+			email: '',
+			message: ''
+		})
 	}
 
 	return (
